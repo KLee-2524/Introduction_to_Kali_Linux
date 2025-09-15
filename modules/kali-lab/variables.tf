@@ -65,6 +65,11 @@ variable "kali_setup_script" {
     sudo DEBIAN_FRONTEND=noninteractive apt-get full-upgrade -y
     echo "apt-get udpate & upgrade initiated" >> /home/kali/FAST/setup_log.txt
 
+    cd /home/kali/FAST
+    sudo wget 'https://wiki.wireshark.org/uploads/__moin_import__/attachments/SampleCaptures/dhcp.pcap' -O dhcp.pcap
+    echo "Wireshark sample DHCP PCAP file downloaded" >> /home/kali/FAST/setup_log.txt
+
+    cd ~
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y kali-desktop-xfce xorg xrdp xorgxrdp
     echo "xfce installation initiated" >> /home/kali/FAST/setup_log.txt
 
